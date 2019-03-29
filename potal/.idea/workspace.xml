@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ce91508-f0c6-4f55-84c3-5939b9faadc2" name="Default Changelist" comment="" />
+    <list default="true" id="6ce91508-f0c6-4f55-84c3-5939b9faadc2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/ggue/ConnectionMaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/ggue/DaoFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/ggue/HallaConnectionMaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/ggue/JejuConnectionMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/potal/com/ggue/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/potal/com/ggue/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/potal/com/ggue/UserdataTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ggue/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ggue/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ggue/UserdataTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ggue/UserDaoTests.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,10 +22,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ggue/UserdataTest.java">
+        <entry file="file://$PROJECT_DIR$/src/com/ggue/UserDaoTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="5" column="38" lean-forward="true" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+            <state relative-caret-position="305">
+              <caret line="32" column="50" lean-forward="true" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ggue/JejuConnectionMaker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ggue/HallaConnectionMaker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ggue/DaoFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -23,21 +63,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ggue/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="165">
+              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ggue/UserDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-176">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
               <folding>
-                <element signature="e#269#270#0" expanded="true" />
-                <element signature="e#296#297#0" expanded="true" />
+                <element signature="e#197#198#0" expanded="true" />
+                <element signature="e#251#252#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/ggue/UserDao.java">
+        <entry file="file://$PROJECT_DIR$/src/com/ggue/ConnectionMaker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+            <state relative-caret-position="105">
+              <caret line="7" column="82" lean-forward="true" selection-start-line="7" selection-start-column="82" selection-end-line="7" selection-end-column="82" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,20 +103,32 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/ggue/User.java" />
-        <option value="$PROJECT_DIR$/src/com/ggue/UserdataTest.java" />
+        <option value="$PROJECT_DIR$/src/com/ggue/connectionMaker.java" />
+        <option value="$PROJECT_DIR$/src/com/ggue/ConnectionMaker.java" />
         <option value="$PROJECT_DIR$/src/com/ggue/UserDao.java" />
+        <option value="$PROJECT_DIR$/src/com/ggue/HallaUserDao.java" />
+        <option value="$PROJECT_DIR$/src/com/ggue/JejuUserDao.java" />
+        <option value="$PROJECT_DIR$/src/com/ggue/DaoFactory.java" />
+        <option value="$PROJECT_DIR$/src/com/ggue/UserdataTest.java" />
+        <option value="$PROJECT_DIR$/src/com/ggue/JejuConnectionMaker.java" />
+        <option value="$PROJECT_DIR$/src/com/ggue/HallaConnectionMaker.java" />
+        <option value="$PROJECT_DIR$/src/com/ggue/UserDaoTests.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -93,12 +157,18 @@
               <item name="potal" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="potal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="potal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ggue" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -108,7 +178,8 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553246966599" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553851495221" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -116,14 +187,15 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/com/ggue" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.ggue" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/com/ggue" />
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/com/ggue" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -221,43 +293,44 @@
       <updated>1553239413343</updated>
       <workItem from="1553239438025" duration="1474000" />
       <workItem from="1553241781256" duration="4802000" />
+      <workItem from="1553844520551" duration="3574000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="com_ggue_in_potal - 2019.03.22 at 17h 40m 41s.xml">
+    <history-entry file="com_ggue_in_potal - 2019.03.29 at 16h 42m 18s.xml">
       <configuration name="com.ggue in potal" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserdataTest_testGet - 2019.03.22 at 17h 41m 32s.xml">
-      <configuration name="UserdataTest.testGet" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="com_ggue_in_potal - 2019.03.22 at 17h 41m 54s.xml">
+    <history-entry file="com_ggue_in_potal - 2019.03.29 at 16h 45m 39s.xml">
       <configuration name="com.ggue in potal" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_ggue_in_potal - 2019.03.22 at 18h 20m 12s.xml">
+    <history-entry file="com_ggue_in_potal - 2019.03.29 at 16h 45m 47s.xml">
       <configuration name="com.ggue in potal" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserdataTest_testAdd - 2019.03.22 at 18h 21m 07s.xml">
-      <configuration name="UserdataTest.testAdd" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserdataTest_testAdd - 2019.03.22 at 18h 21m 22s.xml">
-      <configuration name="UserdataTest.testAdd" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="com_ggue_in_potal - 2019.03.22 at 18h 22m 24s.xml">
+    <history-entry file="com_ggue_in_potal - 2019.03.29 at 18h 14m 37s.xml">
       <configuration name="com.ggue in potal" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_ggue_in_potal - 2019.03.22 at 18h 22m 32s.xml">
+    <history-entry file="com_ggue_in_potal - 2019.03.29 at 18h 17m 09s.xml">
       <configuration name="com.ggue in potal" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_ggue_in_potal - 2019.03.22 at 18h 28m 58s.xml">
+    <history-entry file="com_ggue_in_potal - 2019.03.29 at 18h 17m 39s.xml">
       <configuration name="com.ggue in potal" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_ggue_in_potal - 2019.03.22 at 18h 29m 12s.xml">
+    <history-entry file="com_ggue_in_potal - 2019.03.29 at 18h 20m 26s.xml">
+      <configuration name="com.ggue in potal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="com_ggue_in_potal - 2019.03.29 at 18h 20m 41s.xml">
+      <configuration name="com.ggue in potal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="com_ggue_in_potal - 2019.03.29 at 18h 20m 51s.xml">
+      <configuration name="com.ggue in potal" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="com_ggue_in_potal - 2019.03.29 at 18h 21m 05s.xml">
       <configuration name="com.ggue in potal" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6276000" />
+    <option name="totallyTimeSpent" value="9850000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -269,20 +342,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.32891566" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32866243" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32771084" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.42292994" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -290,8 +362,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32891566" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.31084338" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -302,6 +375,37 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32771084" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.42292994" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.31084338" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32891566" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -325,28 +429,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ggue/UserdataTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/ggue/UserDaoTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="5" column="38" lean-forward="true" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+        <state relative-caret-position="305">
+          <caret line="32" column="50" lean-forward="true" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ggue/JejuConnectionMaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ggue/HallaConnectionMaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ggue/DaoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ggue/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <element signature="e#269#270#0" expanded="true" />
-            <element signature="e#296#297#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="165">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ggue/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+        <state relative-caret-position="-176">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#197#198#0" expanded="true" />
+            <element signature="e#251#252#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ggue/ConnectionMaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="82" lean-forward="true" selection-start-line="7" selection-start-column="82" selection-end-line="7" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
