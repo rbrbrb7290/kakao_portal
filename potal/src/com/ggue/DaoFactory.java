@@ -1,7 +1,8 @@
 package com.ggue;
 
+
 public class DaoFactory {
-    public UserDao getUserDao() {
+    public UserDao userDao() {
         return new UserDao(getConnectionMaker());
     }
 
@@ -9,3 +10,4 @@ public class DaoFactory {
         return new JejuConnectionMaker();
     }
 }
+

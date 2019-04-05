@@ -1,11 +1,11 @@
-package com.ggue;
+package kr.ac.jejunu.userdao;
 
-import javafx.application.Application;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -15,12 +15,13 @@ public class UserDaoTests {
 
     @Before
     public void setup() {
+//        ApplicationContext applicationContext =
+//                new ClassPathXmlApplicationContext("daoFactory.xml");
         ApplicationContext applicationContext =
                 new AnnotationConfigApplicationContext(DaoFactory.class);
-
-        userDao = ApplicationContext.getBean("userDao", UserDao.class);
-
+        userDao = applicationContext.getBean("userDao", UserDao.class);
     }
+
     @Test
     public void testGet() throws SQLException, ClassNotFoundException {
         Long id = 1l;
@@ -46,15 +47,18 @@ public class UserDaoTests {
         assertThat(resultUser.getPassword(), is(password));
     }
 
-    @Test
-    public void testHallaGet() throws SQLException, ClassNotFoundException {
-        Long id = 1l;
-        String name = "허윤호";
-        String password = "1234";
-        User user = userDao.get(id);
-        assertThat(user.getId(), is(id));
-        assertThat(user.getName(), is(name));
-        assertThat(user.getPassword(), is(password));
-    }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
