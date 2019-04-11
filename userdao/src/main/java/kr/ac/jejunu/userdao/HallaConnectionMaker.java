@@ -8,7 +8,7 @@ public class HallaConnectionMaker implements ConnectionMaker {
     @Override
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        return DriverManager.getConnection("jdbc:mysql://172.18.102.128/halla?serverTimezone=UTC"
+        return DriverManager.getConnection("jdbc:mysql://localhost/portal_test?serverTimezone=UTC"
                 , "username", "password");
     }
 }
