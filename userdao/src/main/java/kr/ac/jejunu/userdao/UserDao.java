@@ -11,33 +11,35 @@ public class UserDao {
     }
 
     public User get(Long id) throws SQLException {
-        StatementStrategy statementStrategy = new StatementStrategy() {
-            @Override
-            public PreparedStatement makePrepareStatement(Connection connection) throws SQLException {
-                PreparedStatement preparedStatement = connection.prepareStatement("select * from userinfo where id = ?");
-                preparedStatement.setLong(1, id);
-                return preparedStatement;
-            }
-        };
-        return jdbcContext.jdbcContextForGet(statementStrategy);
-        //템플릿 콜백 패턴 : 실행되는 메소드 내용자체를 파라미터로 넘겨주려할때 java 1.8에서 람다를 써서 간단하게 변형가능 (메소드 하나일경우)
+        String sql = "select * from userinfo where id = ?";
+        Object[] params = new Object[]{id};
+        return jdbcContext.get(sql, params);
     }
 
-
     public Long add(User user) throws ClassNotFoundException, SQLException {
-        StatementStrategy statementStrategy = new AddStatementStrategy(user);
-        return jdbcContext.jdbcContextForAdd(statementStrategy);
+//        StatementStrategy statementStrategy = new AddStatementStrategy(user);
+//        return jdbcContext.jdbcContextForAdd(statementStrategy);
+        String sql = "insert into userinfo(name, password) values (?, ?)";
+        Object[] params = new Object[]{user.getName(), user.getPassword()};
+        return jdbcContext.add(sql, params);
     }
 
 
     public void update(User user) throws SQLException {
-        StatementStrategy statementStrategy = new UpdateStatementStrategy(user);
-        jdbcContext.jdbcContextForUpdate(statementStrategy);
+//        StatementStrategy statementStrategy = new UpdateStatementStrategy(user);
+//        jdbcContext.jdbcContextForUpdate(statementStrategy);
+        String sql = "update userinfo set name = ?, password = ? where id = ?";
+        Object[] params = new Object[]{user.getName(), user.getPassword(), user.getId()};
+        jdbcContext.update(sql, params);
     }
 
     public void delete(Long id) throws SQLException {
-        StatementStrategy statementStrategy = new DeleteStatementStrategy(id);
-        jdbcContext.jdbcContextForUpdate(statementStrategy);
+//        StatementStrategy statementStrategy = new DeleteStatementStrategy(id);
+//        jdbcContext.jdbcContextForUpdate(statementStrategy);
+
+        String sql = "delete from userinfo where id = ?";
+        Object[] params = new Object[]{id};
+        jdbcContext.update(sql, params);
     }
 
 }
