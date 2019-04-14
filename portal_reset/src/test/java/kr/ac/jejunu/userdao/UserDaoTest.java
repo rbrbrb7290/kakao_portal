@@ -22,7 +22,9 @@ public class UserDaoTest {
         String name = "오현규";
         String password = "1234";
 
-        UserDao userDao = new UserDao(new JejuConnectionMaker());
+        DaoFactory daoFactory = new DaoFactory();
+        UserDao userDao = daoFactory.getUserDao();
+        //UserDao userDao = new UserDao(new JejuConnectionMaker());
         User user = userDao.get(id);
         //db를 연결해서 저장한 데이터가 일치하는지 확인 (assertEquals(id user.getId())도 가능)
         assertThat(user.getId(), is(id));
@@ -37,7 +39,9 @@ public class UserDaoTest {
             String password = "9999";
 
             User user = new User();
-            UserDao userDao = new UserDao(new JejuConnectionMaker());
+            //UserDao userDao = new UserDao(new JejuConnectionMaker());
+            DaoFactory daoFactory = new DaoFactory();
+            UserDao userDao = daoFactory.getUserDao();
 
 
             user.setName(name);
