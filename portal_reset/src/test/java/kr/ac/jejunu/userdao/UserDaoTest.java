@@ -1,26 +1,5 @@
 package kr.ac.jejunu.userdao;
 
-//import org.junit.Test;
-//
-//import java.sql.SQLException;
-//
-//import static org.junit.Assert.assertEquals;
-//
-//public class UserDaoTest {
-//    @Test
-//    public void get() throws SQLException, ClassNotFoundException {
-//        UserDao userDao = new UserDao();
-//        Long id = 1L;
-//        String name = "오현규";
-//        String password = "1234";
-//
-//        User user = userDao.get(id);
-//        assertEquals(id, user.getId());
-//        assertEquals(name, user.getName());
-//        assertEquals(password, user.getPassword());
-//    }
-//}
-
 import org.junit.Test;
 
 import java.sql.*;
@@ -43,7 +22,7 @@ public class UserDaoTest {
         String name = "오현규";
         String password = "1234";
 
-        UserDao userDao = new JejuUserDao();
+        UserDao userDao = new UserDao(new JejuConnectionMaker());
         User user = userDao.get(id);
         //db를 연결해서 저장한 데이터가 일치하는지 확인 (assertEquals(id user.getId())도 가능)
         assertThat(user.getId(), is(id));
@@ -58,7 +37,7 @@ public class UserDaoTest {
             String password = "9999";
 
             User user = new User();
-            UserDao userDao = new JejuUserDao();
+            UserDao userDao = new UserDao(new JejuConnectionMaker());
 
 
             user.setName(name);
@@ -78,7 +57,7 @@ public class UserDaoTest {
         String name = "허윤호";
         String password = "1234";
 
-        UserDao userDao = new HallaUserDao();
+        UserDao userDao = new UserDao(new HallaConnectionMaker());
         User user = userDao.get(id);
         //db를 연결해서 저장한 데이터가 일치하는지 확인 (assertEquals(id user.getId())도 가능)
         assertThat(user.getId(), is(id));
@@ -86,4 +65,4 @@ public class UserDaoTest {
         assertThat(user.getPassword(), is(password));
     }
 
-    }
+}

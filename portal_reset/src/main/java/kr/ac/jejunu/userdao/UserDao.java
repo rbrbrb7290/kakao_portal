@@ -2,11 +2,16 @@ package kr.ac.jejunu.userdao;
 
 import java.sql.*;
 
-public abstract class UserDao {
+public class UserDao {
+    private final ConnectionMaker connectionMaker;
+
+//    //UserDao를 호출하는 녀석에게 의존성을 던짐 who? DaoTest -> DaoFactory
+    public UserDao(ConnectionMaker connectionMaker) {
+        this.connectionMaker = connectionMaker;
+    }
+
     public User get(Long id) throws ClassNotFoundException, SQLException {
-        //데이터는어디에?   Mysql
-        //Driver Class Load
-        Connection connection = getConnection();
+        Connection connection = connectionMaker.getConnection();
         // 쿼리만들고
         PreparedStatement preparedStatement = connection.prepareStatement("select * from userinfo where id = ?");
         preparedStatement.setLong(1, id);
@@ -27,41 +32,31 @@ public abstract class UserDao {
         return user;
     }
 
-
-
     public Long add(User user) throws SQLException, ClassNotFoundException {
-            //데이터는어디에?   Mysql
-            //Driver Class Load
-        Connection connection = getConnection();
+        //데이터는어디에?   Mysql
+        //Driver Class Load
+        Connection connection = connectionMaker.getConnection();
         // 쿼리만들고
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into userinfo (name, password) values (?,?)");
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getPassword());
+        PreparedStatement preparedStatement = connection.prepareStatement("insert into userinfo (name, password) values (?,?)");
+        preparedStatement.setString(1, user.getName());
+        preparedStatement.setString(2, user.getPassword());
 
-            preparedStatement.executeUpdate(); //Update는 정수형 반환(select제외) ,execute - boolean , executeQuery - 객체값(select구문)
+        preparedStatement.executeUpdate(); //Update는 정수형 반환(select제외) ,execute - boolean , executeQuery - 객체값(select구문)
 
-            preparedStatement = connection.prepareStatement("select last_insert_id()");
-            ResultSet resultSet = preparedStatement.executeQuery();
+        preparedStatement = connection.prepareStatement("select last_insert_id()");
+        ResultSet resultSet = preparedStatement.executeQuery();
 
-            resultSet.next();
-            Long id = resultSet.getLong(1);
+        resultSet.next();
+        Long id = resultSet.getLong(1);
 
-            //자원을 해지한다.
-            resultSet.close();
-            preparedStatement.close();
-            connection.close();
+        //자원을 해지한다.
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
 
-            return id;
+        return id;
 
     }
 
-    public abstract Connection getConnection() throws ClassNotFoundException, SQLException ;
 
 }
-//    {
-//        Class.forName("com.mysql.cj.jdbc.Driver");
-//        // Connection    접속정보는? localhost jeju id : jeju pw: jejupw
-//        return DriverManager.getConnection("jdbc:mysql://localhost/jeju?serverTimezone=UTC", "root", "");
-//    }
-//
-//}
