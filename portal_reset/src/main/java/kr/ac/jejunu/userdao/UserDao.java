@@ -4,11 +4,10 @@ import javax.sql.DataSource;
 import java.sql.*;
 
 public class UserDao {
-    private final DataSource datasource;
+    private DataSource dataSource;
 
-    public UserDao(DataSource datasource)
-    {
-        this.datasource = datasource;
+    public UserDao(DataSource dataSource){
+        this.dataSource = dataSource;
     }
 
     public User get(Long id) throws ClassNotFoundException, SQLException {
@@ -17,21 +16,23 @@ public class UserDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        User user;
+        User user = null;
         try {
-            connection = datasource.getConnection();
+            connection = dataSource.getConnection();
             // 쿼리만들고
             preparedStatement = connection.prepareStatement("select * from userinfo where id = ?");
             preparedStatement.setLong(1, id);
             // 실행
             resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            // 결과매핑
-            user = new User();
-            user.setId(resultSet.getLong("id"));
-            user.setName(resultSet.getString("name"));
-            user.setPassword(resultSet.getString("password"));
+            if(resultSet.next()) {
+                // 결과매핑
+                user = new User();
+                user.setId(resultSet.getLong("id"));
+                user.setName(resultSet.getString("name"));
+                user.setPassword(resultSet.getString("password"));
+            }
         } finally {
+            //자원을 해지한다.
             if(resultSet != null)
                 try {
                     resultSet.close();
@@ -55,19 +56,18 @@ public class UserDao {
         return user;
     }
 
-
     public Long add(User user) throws SQLException, ClassNotFoundException {
+        //Driver Class Load
+        Long id = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        Long id = null;
         try {
-            connection = datasource.getConnection();
+            connection = dataSource.getConnection();
             // 쿼리만들고
-            preparedStatement = connection.prepareStatement("insert into userinfo (name, password) values (?,?)");
+            preparedStatement = connection.prepareStatement("insert into userinfo (name, password) values (?, ?)");
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getPassword());
             preparedStatement.executeUpdate();
-            // 실행
 
             id = getLastInsertId(connection);
         } finally {
@@ -84,15 +84,67 @@ public class UserDao {
                     e.printStackTrace();
                 }
         }
-
-
         return id;
     }
 
-    public Long getLastInsertId(Connection connection) throws SQLException {
+    public void Update(User user) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connection = dataSource.getConnection();
+            // 쿼리만들고
+            preparedStatement = connection.prepareStatement("update userinfo set name = ? , password =? where id = ?");
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setLong(3, user.getId());
+            preparedStatement.executeUpdate();
 
-        ResultSet resultSet = null;
+        } finally {
+            if(preparedStatement != null)
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            if(connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+    }
+
+    public void Delete(Long id) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connection = dataSource.getConnection();
+            // 쿼리만들고
+            preparedStatement = connection.prepareStatement("delete from userinfo where id =?");
+            preparedStatement.setLong(1, id);
+            preparedStatement.executeUpdate();
+
+        } finally {
+            if(preparedStatement != null)
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            if(connection != null)
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+        }
+
+    }
+
+    public Long getLastInsertId(Connection connection) throws SQLException {
         Long id = null;
+        ResultSet resultSet = null;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("select last_insert_id()");
             resultSet = preparedStatement.executeQuery();
@@ -107,8 +159,9 @@ public class UserDao {
                     e.printStackTrace();
                 }
         }
-
         return id;
     }
+
+
 
 }
