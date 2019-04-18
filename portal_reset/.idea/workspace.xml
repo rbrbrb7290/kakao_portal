@@ -42,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/kr/ac/jejunu/userdao/UserDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+            <state relative-caret-position="645">
+              <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/kr/ac/jejunu/userdao/UserDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+            <state relative-caret-position="345">
+              <caret line="58" column="67" lean-forward="true" selection-start-line="58" selection-start-column="67" selection-end-line="58" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -192,7 +192,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555358766442" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555576937446" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -280,7 +280,7 @@
       <option name="presentableId" value="Default" />
       <updated>1555174804050</updated>
       <workItem from="1555174807458" duration="24391000" />
-      <workItem from="1555575940558" duration="264000" />
+      <workItem from="1555575940558" duration="936000" />
     </task>
     <servers />
   </component>
@@ -317,7 +317,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24655000" />
+    <option name="totallyTimeSpent" value="25327000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -348,9 +348,9 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49928468" weight="0.32891566" />
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4985694" weight="0.3120482" />
       <window_info anchor="bottom" id="Spring" order="8" sideWeight="0.49928468" weight="0.32891566" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4985694" weight="0.32891566" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4985694" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5007153" side_tool="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50143063" side_tool="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4985694" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" />
@@ -484,8 +484,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/kr/ac/jejunu/userdao/UserDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+        <state relative-caret-position="645">
+          <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -494,8 +494,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/kr/ac/jejunu/userdao/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+        <state relative-caret-position="345">
+          <caret line="58" column="67" lean-forward="true" selection-start-line="58" selection-start-column="67" selection-end-line="58" selection-end-column="67" />
         </state>
       </provider>
     </entry>
