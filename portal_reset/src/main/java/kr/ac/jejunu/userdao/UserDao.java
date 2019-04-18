@@ -60,9 +60,5 @@ public class UserDao {
         return id;
     }
 
-    public Connection getConnection() throws ClassNotFoundException, SQLException {
-        // Connection    접속정보는? localhost jeju id : jeju pw: jejupw
-        return connectionMaker.getConnection();
-    }
 }
 
