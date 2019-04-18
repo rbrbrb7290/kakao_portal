@@ -21,7 +21,7 @@ public class UserDaoTest {
         Long id = 1l;
         String name = "오현규";
         String password = "1234";
-        UserDao userDao = new JejuUserDao();
+        UserDao userDao = new UserDao(new JejuConnectionMaker());
 
 
         User user = userDao.get(id);
@@ -37,7 +37,7 @@ public class UserDaoTest {
         String name = "kakao!";
         String password = "1234";
 
-        UserDao userDao = new JejuUserDao();
+        UserDao userDao = new UserDao(new JejuConnectionMaker());
         User user = new User();
 
         user.setName(name);
@@ -57,7 +57,7 @@ public class UserDaoTest {
         Long id = 1l;
         String name = "허윤호";
         String password = "1234";
-        UserDao userDao = new HallaUserDao();
+        UserDao userDao = new UserDao(new HallaConnectionMaker());
 
 
         User user = userDao.get(id);
