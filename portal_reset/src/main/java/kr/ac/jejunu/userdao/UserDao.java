@@ -2,7 +2,7 @@ package kr.ac.jejunu.userdao;
 
 import java.sql.*;
 
-public class UserDao {
+public abstract class UserDao {
     public User get(Long id) throws ClassNotFoundException, SQLException {
         //데이터는어디에?   Mysql
         //Driver Class Load
@@ -37,7 +37,7 @@ public class UserDao {
 
 
         // 실행
-        preparedStatement = connection.prepareStatement("select insert_last_id()");
+        preparedStatement = connection.prepareStatement("select last_insert_id()");
         ResultSet resultSet = preparedStatement.executeQuery();
 
 
@@ -54,10 +54,10 @@ public class UserDao {
         return id;
     }
 
-    private Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        // Connection    접속정보는? localhost jeju id : jeju pw: jejupw
-        return DriverManager.getConnection("jdbc:mysql://localhost/jeju", "root", "");
-    }
+    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
+//        Class.forName("com.mysql.cj.jdbc.Driver");
+//        // Connection    접속정보는? localhost jeju id : jeju pw: jejupw
+//        return DriverManager.getConnection("jdbc:mysql://localhost/jeju?serverTimezone=UTC", "root", "");
+//    }
 }
 

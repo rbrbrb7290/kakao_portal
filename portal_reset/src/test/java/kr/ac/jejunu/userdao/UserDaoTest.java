@@ -21,7 +21,7 @@ public class UserDaoTest {
         Long id = 1l;
         String name = "오현규";
         String password = "1234";
-        UserDao userDao = new UserDao();
+        UserDao userDao = new JejuUserDao();
 
 
         User user = userDao.get(id);
@@ -37,7 +37,7 @@ public class UserDaoTest {
         String name = "kakao!";
         String password = "1234";
 
-        UserDao userDao = new UserDao();
+        UserDao userDao = new JejuUserDao();
         User user = new User();
 
         user.setName(name);
@@ -52,7 +52,19 @@ public class UserDaoTest {
 
     }
 
+    @Test
+    public void getHalla() throws SQLException, ClassNotFoundException {
+        Long id = 1l;
+        String name = "허윤호";
+        String password = "1234";
+        UserDao userDao = new HallaUserDao();
 
 
+        User user = userDao.get(id);
+        //db를 연결해서 저장한 데이터가 일치하는지 확인 (assertEquals(id user.getId())도 가능)
+        assertThat(user.getId(), is(id));
+        assertThat(user.getName(), is(name));
+        assertThat(user.getPassword(), is(password));
+    }
 
 }
