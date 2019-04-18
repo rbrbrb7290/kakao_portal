@@ -21,7 +21,10 @@ public class UserDaoTest {
         Long id = 1l;
         String name = "오현규";
         String password = "1234";
-        UserDao userDao = new UserDao(new JejuConnectionMaker());
+
+        DaoFactory daoFactory = new DaoFactory();
+        UserDao userDao = daoFactory.getUserDao();
+        //UserDao userDao = new UserDao(new JejuConnectionMaker());
 
 
         User user = userDao.get(id);
