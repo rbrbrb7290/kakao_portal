@@ -1,5 +1,6 @@
 package kr.ac.jejunu.userdao;
 
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,18 +12,17 @@ import java.sql.Driver;
 @Configuration
 public class DaoFactory {
     @Value("${db.classname}")
-    private String className; // = "com.mysql.cj.jdbc.Driver";
+   private String className; // = "com.mysql.cj.jdbc.Driver";
     @Value("${db.url}")
-    private String url; // = "jdbc:mysql://localhost/jeju?serverTimezone=UTC";
+   private String url; // = "jdbc:mysql://localhost/jeju?serverTimezone=UTC";
     @Value("${db.username}")
-    private String username; // = "root";
+   private String username; // = "root";
     @Value("${db.password}")
-    private String password ; //= "";
+   private String password; // = "";
     @Bean
     public UserDao userDao() {
         return new UserDao(jdbcContext());
     }
-
     @Bean
     public JdbcContext jdbcContext() {
         return new JdbcContext(dataSource());

@@ -7,10 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class JdbcContext {
-    final DataSource dataSource;
+    final DataSource connectionMaker;
 
-    public JdbcContext(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public JdbcContext(DataSource connectionMaker) {
+        this.connectionMaker = connectionMaker;
     }
 
     User JdbcContextForGet(StatementStrategy statementStrategy) throws SQLException {
@@ -19,13 +19,14 @@ public class JdbcContext {
         ResultSet resultSet = null;
         User user = null;
         try {
-            connection = dataSource.getConnection();
+            connection = connectionMaker.getConnection();
             // 쿼리만들고
             preparedStatement = statementStrategy.MakePreparedStatement(connection);
 //            preparedStatement = connection.prepareStatement("select * from userinfo where id = ?");
 //            preparedStatement.setLong(1, id);
             // 실행
             resultSet = preparedStatement.executeQuery();
+
             if (resultSet.next()) {
                 // 결과매핑
                 user = new User();
@@ -34,6 +35,7 @@ public class JdbcContext {
                 user.setPassword(resultSet.getString("password"));
             }
         } finally {
+            //자원을 해지한다.
             if (resultSet != null)
                 try {
                     resultSet.close();
@@ -52,6 +54,7 @@ public class JdbcContext {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+
         }
 
         return user;
@@ -60,14 +63,15 @@ public class JdbcContext {
     Long JdbcContextForAdd(StatementStrategy statementStrategy) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        Long id = null;
+        Long id;
         try {
-            connection = dataSource.getConnection();
-            // 쿼리만들고
+            connection = connectionMaker.getConnection();
             preparedStatement = statementStrategy.MakePreparedStatement(connection);
-//            preparedStatement = connection.prepareStatement("insert into userinfo (name , password) values (?,?)");
+            // 쿼리만들고
+//            preparedStatement = connection.prepareStatement("insert into userinfo (name, password) values (?,?)");
 //            preparedStatement.setString(1, user.getName());
 //            preparedStatement.setString(2, user.getPassword());
+
             preparedStatement.executeUpdate();
 
             // 실행
@@ -86,6 +90,7 @@ public class JdbcContext {
                     e.printStackTrace();
                 }
         }
+
         return id;
     }
 
@@ -93,13 +98,14 @@ public class JdbcContext {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
-            connection = dataSource.getConnection();
-            // 쿼리만들고
+            connection = connectionMaker.getConnection();
             preparedStatement = statementStrategy.MakePreparedStatement(connection);
-//            preparedStatement = connection.prepareStatement("update userinfo set name = ? , password =? where id =?");
+            // 쿼리만들고
+//            preparedStatement = connection.prepareStatement("update userinfo set name =? , password = ? where id =?");
 //            preparedStatement.setString(1, user.getName());
 //            preparedStatement.setString(2, user.getPassword());
 //            preparedStatement.setLong(3, user.getId());
+
             preparedStatement.executeUpdate();
 
         } finally {
@@ -118,9 +124,9 @@ public class JdbcContext {
         }
     }
 
-    public Long getLastInsertId(Connection connection) throws SQLException {
-        Long id = null;
+    Long getLastInsertId(Connection connection) throws SQLException {
         ResultSet resultSet = null;
+        Long id = null;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("select last_insert_id()");
             resultSet = preparedStatement.executeQuery();
@@ -128,14 +134,43 @@ public class JdbcContext {
 
             id = resultSet.getLong(1);
         } finally {
-
-            if (connection != null)
+            if (resultSet != null)
                 try {
-                    connection.close();
+                    resultSet.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
         }
         return id;
+    }
+
+    public void update(String sql, Object[] params) throws SQLException {
+        StatementStrategy statementStrategy = connection -> {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            for (int i = 0; i < params.length; i++)
+                preparedStatement.setObject(i + 1, params[i]);
+            return preparedStatement;
+        };
+        JdbcContextForUpdate(statementStrategy);
+    }
+
+    public Long add(String sql, Object[] params) throws SQLException {
+        StatementStrategy statementStrategy = connection -> {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            for(int i =0; i<params.length; i++)
+                preparedStatement.setObject(i+1, params[i]);
+            return preparedStatement;
+        };
+        return JdbcContextForAdd(statementStrategy);
+    }
+
+    public User get(String sql, Object[] params) throws SQLException {
+        StatementStrategy statementStrategy = connection -> {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            for(int i =0; i<params.length; i++)
+                preparedStatement.setObject(i+1, params[i]);
+            return preparedStatement;
+        };
+        return JdbcContextForGet(statementStrategy);
     }
 }
