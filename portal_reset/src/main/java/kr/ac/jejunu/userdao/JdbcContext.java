@@ -13,7 +13,7 @@ public class JdbcContext {
         this.dataSource = dataSource;
     }
 
-    public User JdbcContextForGet(StatementStrategy statementStrategy) throws SQLException {
+    User JdbcContextForGet(StatementStrategy statementStrategy) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -26,7 +26,6 @@ public class JdbcContext {
 //            preparedStatement.setLong(1, id);
             // 실행
             resultSet = preparedStatement.executeQuery();
-
             if (resultSet.next()) {
                 // 결과매핑
                 user = new User();
@@ -55,19 +54,22 @@ public class JdbcContext {
                 }
         }
 
-        //자원을 해지한다.
         return user;
     }
 
-    public Long JdbcContextForAdd(StatementStrategy statementStrategy) throws SQLException {
-        Long id;
+    Long JdbcContextForAdd(StatementStrategy statementStrategy) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
+        Long id = null;
         try {
             connection = dataSource.getConnection();
+            // 쿼리만들고
             preparedStatement = statementStrategy.MakePreparedStatement(connection);
-
+//            preparedStatement = connection.prepareStatement("insert into userinfo (name , password) values (?,?)");
+//            preparedStatement.setString(1, user.getName());
+//            preparedStatement.setString(2, user.getPassword());
             preparedStatement.executeUpdate();
+
             // 실행
             id = getLastInsertId(connection);
         } finally {
@@ -84,22 +86,22 @@ public class JdbcContext {
                     e.printStackTrace();
                 }
         }
-
         return id;
     }
 
-    public void JdbcContextForUpdate(StatementStrategy statementStrategy) throws SQLException {
+    void JdbcContextForUpdate(StatementStrategy statementStrategy) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
             connection = dataSource.getConnection();
-
+            // 쿼리만들고
             preparedStatement = statementStrategy.MakePreparedStatement(connection);
-//            preparedStatement = connection.prepareStatement("update userinfo set name = ? , password = ? where id = ?");
+//            preparedStatement = connection.prepareStatement("update userinfo set name = ? , password =? where id =?");
 //            preparedStatement.setString(1, user.getName());
 //            preparedStatement.setString(2, user.getPassword());
 //            preparedStatement.setLong(3, user.getId());
             preparedStatement.executeUpdate();
+
         } finally {
             if (preparedStatement != null)
                 try {
@@ -117,17 +119,19 @@ public class JdbcContext {
     }
 
     public Long getLastInsertId(Connection connection) throws SQLException {
-        ResultSet resultSet = null;
         Long id = null;
+        ResultSet resultSet = null;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("select last_insert_id()");
             resultSet = preparedStatement.executeQuery();
             resultSet.next();
+
             id = resultSet.getLong(1);
         } finally {
-            if (resultSet != null)
+
+            if (connection != null)
                 try {
-                    resultSet.close();
+                    connection.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

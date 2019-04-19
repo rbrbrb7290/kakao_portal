@@ -17,14 +17,14 @@ public class DaoFactory {
     @Value("${db.username}")
     private String username; // = "root";
     @Value("${db.password}")
-    private String password; // = "";
-
+    private String password ; //= "";
     @Bean
     public UserDao userDao() {
         return new UserDao(jdbcContext());
     }
 
-    private JdbcContext jdbcContext() {
+    @Bean
+    public JdbcContext jdbcContext() {
         return new JdbcContext(dataSource());
     }
 
@@ -37,10 +37,10 @@ public class DaoFactory {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
         dataSource.setUrl(url);
         dataSource.setUsername(username);
         dataSource.setPassword(password);
-
         return dataSource;
     }
 }

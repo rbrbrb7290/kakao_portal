@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
 
 import java.sql.*;
 
@@ -27,7 +28,8 @@ public class UserDaoTest {
         Long id = 1l;
         String name = "오현규";
         String password = "1234";
-        //UserDao userDao = new UserDao(new JejuConnectionMaker());
+
+
         User user = userDao.get(id);
         //db를 연결해서 저장한 데이터가 일치하는지 확인 (assertEquals(id user.getId())도 가능)
         assertThat(user.getId(), is(id));
@@ -38,42 +40,40 @@ public class UserDaoTest {
     @Test
     public void add() throws SQLException, ClassNotFoundException {
         User user = new User();
-
         String name = "kakao";
-        String password = "1234";
+        String passowrd = "2222";
 
         user.setName(name);
-        user.setPassword(password);
+        user.setPassword(passowrd);
 
         Long id = userDao.add(user);
 
         User resultUser = userDao.get(id);
-        assertThat(resultUser.getId(), is(id));
+        assertThat(resultUser.getId() , is(id));
         assertThat(resultUser.getName(), is(name));
-        assertThat(resultUser.getPassword(), is(password));
+        assertThat(resultUser.getPassword(), is(passowrd));
     }
 
     @Test
     public void Update() throws SQLException, ClassNotFoundException {
         User user = new User();
         String name = "kakao";
-        String password = "1234";
+        String passowrd = "2222";
         user.setName(name);
-        user.setPassword(password);
-
+        user.setPassword(passowrd);
         Long id = userDao.add(user);
 
         user.setId(id);
 
-        String changeName = "hihi";
-        String changePassword = "gogo";
+        String changeName = "kakao";
+        String changePassword = "1234";
         user.setName(changeName);
         user.setPassword(changePassword);
 
         userDao.Update(user);
 
         User resultUser = userDao.get(id);
-        assertThat(resultUser.getId(), is(id));
+        assertThat(resultUser.getId() , is(id));
         assertThat(resultUser.getName(), is(changeName));
         assertThat(resultUser.getPassword(), is(changePassword));
     }
@@ -82,16 +82,17 @@ public class UserDaoTest {
     public void Delete() throws SQLException, ClassNotFoundException {
         User user = new User();
         String name = "kakao";
-        String password = "1234";
+        String passowrd = "2222";
         user.setName(name);
-        user.setPassword(password);
+        user.setPassword(passowrd);
         Long id = userDao.add(user);
+
 
         userDao.Delete(id);
 
         user = userDao.get(id);
         assertThat(user , nullValue());
-
     }
 
 }
+
