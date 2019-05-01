@@ -28,7 +28,6 @@ public class UserDaoTest {
         String name = "오현규";
         String password = "1234";
 
-
         User user = userDao.get(id);
         //db를 연결해서 저장한 데이터가 일치하는지 확인 (assertEquals(id user.getId())도 가능)
         assertThat(user.getId(), is(id));
