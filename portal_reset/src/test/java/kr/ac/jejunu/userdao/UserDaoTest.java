@@ -21,7 +21,8 @@ public class UserDaoTest {
         Long id = 1l;
         String name = "오현규";
         String password = "1234";
-        UserDao userDao = new JejuUserDao();
+        DaoFactory daoFactory = new DaoFactory();
+        UserDao userDao = daoFactory.getJejuDao();
 
         User user = userDao.get(id);
         //db를 연결해서 저장한 데이터가 일치하는지 확인 (assertEquals(id user.getId())도 가능)
@@ -34,7 +35,8 @@ public class UserDaoTest {
     public void add() throws SQLException , ClassNotFoundException{
 
         User user = new User();
-        UserDao userDao = new JejuUserDao();
+        DaoFactory daoFactory = new DaoFactory();
+        UserDao userDao = daoFactory.getJejuDao();
 
         String name = "ㅎㅇㅎㅇ";
         String password = "1234";
@@ -56,7 +58,9 @@ public class UserDaoTest {
         Long id = 1l;
         String name = "허윤호";
         String password = "1234";
-        UserDao userDao = new HallaUserDao();
+
+        DaoFactory daoFactory = new DaoFactory();
+        UserDao userDao = daoFactory.getHallaDao();
 
         User user = userDao.get(id);
         //db를 연결해서 저장한 데이터가 일치하는지 확인 (assertEquals(id user.getId())도 가능)
@@ -70,7 +74,8 @@ public class UserDaoTest {
     public void addHalla() throws SQLException , ClassNotFoundException{
 
         User user = new User();
-        UserDao userDao = new JejuUserDao();
+        DaoFactory daoFactory = new DaoFactory();
+        UserDao userDao = daoFactory.getHallaDao();
 
         String name = "ㅎㅇㅎㅇ";
         String password = "1234";
