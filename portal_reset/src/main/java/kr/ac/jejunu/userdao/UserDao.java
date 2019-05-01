@@ -3,37 +3,54 @@ package kr.ac.jejunu.userdao;
 import java.sql.*;
 
 public class UserDao {
-    private final JdbcContext jdbcContext;
-
-    public UserDao(JdbcContext jdbcContext) {
-        this.jdbcContext = jdbcContext;
-    }
-
-
     public User get(Long id) throws ClassNotFoundException, SQLException {
         //데이터는어디에?   Mysql
         //Driver Class Load
-        String sql = "select * from userinfo where id = ?";
-        Object[] params = new Object[] {id};
-        return jdbcContext.get(sql, params);
+        Connection connection = getConnection();
+        // 쿼리만들고
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from userinfo where id = ?");
+        preparedStatement.setLong(1, id);
+        // 실행
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+        // 결과매핑
+        User user = new User();
+        user.setId(resultSet.getLong("id"));
+        user.setName(resultSet.getString("name"));
+        user.setPassword(resultSet.getString("password"));
+
+        //자원을 해지한다.
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
+
+        return user;
     }
 
     public Long add(User user) throws ClassNotFoundException, SQLException {
-        String sql = "insert into userinfo (name, password) values (?,?)";
-        Object[] params = new Object[] {user.getName(), user.getPassword()};
-        return jdbcContext.add(sql, params);
+        Connection connection = getConnection();
+
+        PreparedStatement preparedStatement = connection.prepareStatement("insert into userinfo (name,password) values (?,?)");
+        preparedStatement.setString(1, user.getName());
+        preparedStatement.setString(2, user.getPassword());
+        preparedStatement.executeUpdate();
+
+        preparedStatement = connection.prepareStatement("select last_insert_id()");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+
+        Long id = resultSet.getLong(1);
+
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
+
+        return id;
+
     }
 
-    public void Update(User user) throws SQLException {
-        String sql = "update userinfo set name =? , password = ? where id =?";
-        Object[] params = new Object[] {user.getName(), user.getPassword(), user.getId()};
-        jdbcContext.update(sql, params);
+    private Connection getConnection() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        return DriverManager.getConnection("jdbc:mysql://localhost/jeju?serverTimezone=UTC", "root", "");
     }
-
-    public void Delete(Long id) throws SQLException {
-        String sql = "delete from userinfo where id =?";
-        Object[] params = new Object[]{id};
-        jdbcContext.update(sql, params);
-    }
-
 }
