@@ -8,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.sql.*;
 
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class UserDaoTest {
@@ -51,6 +51,46 @@ public class UserDaoTest {
         assertThat(resultUser.getName(), is(name));
         assertThat(resultUser.getPassword(), is(password));
 
+    }
+
+    @Test
+    public void update() throws SQLException, ClassNotFoundException {
+        User user = new User();
+        String name = "업데이트";
+        String password = "9999";
+
+        user.setName(name);
+        user.setPassword(password);
+        Long id = userDao.add(user);
+
+        user.setId(id);
+
+        String changeName = "9999";
+        String changePassword = "업데이트";
+        user.setName(changeName);
+        user.setPassword(changePassword);
+
+        userDao.update(user);
+        User resultUser = userDao.get(id);
+        assertThat(resultUser.getId(), is(id));
+        assertThat(resultUser.getName(), is(changeName));
+        assertThat(resultUser.getPassword(), is(changePassword));
+
+    }
+
+    @Test
+    public void delete() throws SQLException, ClassNotFoundException {
+        User user = new User();
+        String name = "삭제";
+        String password = "1111";
+
+        user.setName(name);
+        user.setPassword(password);
+        Long id = userDao.add(user);
+
+        userDao.delete(id);
+        user = userDao.get(id);
+        assertThat(user, nullValue());
     }
 
 }
