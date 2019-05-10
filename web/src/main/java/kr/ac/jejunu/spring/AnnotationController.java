@@ -8,10 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 // step#1: /annotation이라는 url요청을 보냄 -> dispatcher-servlet
 @RequestMapping//("/annotation") //annotation class가 빠져도 hello메소드가 실행가능
 public class AnnotationController {
-    @RequestMapping("/hello")
+    @RequestMapping("/helloNoAnnotationclass")
     public ModelAndView hello(){
         ModelAndView modelAndView = new ModelAndView("helloworld");
-        modelAndView.addObject("hello", "annotation hi");
+        modelAndView.addObject("hello", "annotation class Nope!");
         return modelAndView;
     }
 
