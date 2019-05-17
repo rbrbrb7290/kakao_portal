@@ -14,6 +14,10 @@
         <beans:property name="suffix" value=".jsp"/>
     </beans:bean>
 
+    <!--TODO NegotiatingViewResolver 미디어 타입 설정 (어떤 View를 선택할것인가?)해보기 -->
+    <!--TODO default로 json = application/json ,xml = application/xml (Jackson2V jsnon , Jackson2Vxml~~,아닐경우 InternalResourceViewResolver 설정을 따름&ndash;&gt;-->
+
+
     <!--<beans:bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
     <!--<beans:property name="mappings">-->
     <!--<beans:props>-->
