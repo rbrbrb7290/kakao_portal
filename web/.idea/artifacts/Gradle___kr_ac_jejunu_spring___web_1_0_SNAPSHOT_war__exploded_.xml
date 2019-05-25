@@ -29,10 +29,17 @@
           <element id="library" level="project" name="Gradle: org.springframework:spring-core:5.1.6.RELEASE" />
           <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:4.0.1" />
           <element id="library" level="project" name="Gradle: ch.qos.logback:logback-classic:1.2.3" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.8" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.9.8" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.9.8" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-jcl:5.1.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:8.0.15" />
           <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.2.3" />
+          <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:8.0.15" />
           <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.9.8" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.woodstox:woodstox-core:5.0.3" />
+          <element id="library" level="project" name="Gradle: org.codehaus.woodstox:stax2-api:3.1.4" />
           <element id="library" level="project" name="Gradle: com.google.protobuf:protobuf-java:3.6.1" />
         </element>
       </element>
